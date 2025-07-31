@@ -19,7 +19,7 @@ Waveshare Software: Für das jeweilige Display; erhältlich auf der Waveshare-We
 Apache2: Webserver für die Webseite Installation =  sudo apt install apache2
 mc: Rechteverwaltung nstallation = sudo apt install mc
 
-# Konfiguration der get_data.php
+# Konfiguration der get_data.php und Reifendruck.html
 In der Datei get_data.php müssen die einzelnen IDs der Reifendrucksensoren eingetragen werden, z. B.:
 
 Vorn Links
@@ -27,6 +27,7 @@ Vorn Rechts
 Hinten Links
 Hinten Rechts
 
+in der Reifendruck.html muss die Ip_Addresse des Raspis eingetragen werden an der Erkentlichen stelle IP-ADDRESSE
 # Webseitendateien
 
 ReifendruckDSP.html:
@@ -34,3 +35,5 @@ Diese Webseite ist für Displays (Waveshare) optimiert.
 Reifendruck.html:
 Diese Seite verfügt über einen Zeitblock, der anzeigt, wann die nächste Aktualisierung erfolgt.
 
+# Kopieren 
+Alle Dateien müssen nach der einrichtung in den ordner var/www/html Kopert werden. Dann können diese mit der Ip_Adresse des Pi's aifgerufen werden, zb http://153.167.165:80/Reifendruck.html oder http://153.167.165:80/ReifendruckDSP.html
