@@ -17,7 +17,7 @@ Raspberry Pi 3B+ (getestet)
 RTL_433: Zum Auslesen der Sensoren = https://github.com/merbanan/rtl_433
 Waveshare Software: Für das jeweilige Display; erhältlich auf der Waveshare-Webseite
 Apache2: Webserver für die Webseite Installation =  sudo apt install apache2
-mc: Rechteverwaltung nstallation = sudo apt install mc
+mc: Rechteverwaltung installation = sudo apt install mc
 
 # Konfiguration der get_data.php und Reifendruck.html
 In der Datei get_data.php müssen die einzelnen IDs der Reifendrucksensoren eingetragen werden, z. B.:
