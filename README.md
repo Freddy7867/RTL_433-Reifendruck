@@ -10,7 +10,7 @@ Derzeit besteht ein Bug, bei dem sich die Software für kurze Zeit bei der Aktua
 
 # Benötigte Hardware
 RTL_433 USB-Stick
-Waveshare Display
+Waveshare Display (Optional)
 Raspberry Pi 3B+ (getestet)
 
 # Externe Software
