@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reifendruck</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Verhindert horizontales Scrollen */
+        }
+
+        iframe {
+            width: 100%;
+            height: calc(100% - 40px); /* 40px Abstand für den Timer-Text */
+            border: none; /* Entfernt den Rahmen des iframe */
+        }
+
+        #timer {
+            display: block;
+            padding: 10px;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Text "Daten in: XX:XX" -->
+    <div id="timer" style="display: none;"></div>
+
+    <!-- Container Webseite -->
+    <div id="webpageContainer">
+        <!-- Hier wird die Webseite geladen -->
+        <iframe id="webpage" src="http://192.168.4.1:80/Reifendruck.php"></iframe>
+    </div>
+
+    <script>
+        // Funktion zum Anzeigen der Webseite und Starten des Timers
+        function showWebpage() {
+            // Elemente auswählen
+            var webpageContainer = document.getElementById('webpageContainer');
+            var timer = document.getElementById('timer');
+            var iframe = document.getElementById('webpage');
+
+            // Setzen Sie die Höhe des Iframe basierend auf der Bildschirmhöhe
+            iframe.style.height = (window.innerHeight - 40) + 'px';
+
+            // Zeige den Timer an und starte ihn
+            timer.style.display = 'block';
+            startTimer(timer, function() {
+                // Wenn der Timer abgelaufen ist, zeige die Webseite an
+                webpageContainer.style.display = 'block';
+            });
+        }
+
+        // Funktion zum Starten des Timers
+        function startTimer(timer, callback) {
+            var seconds = 30;
+
+            var interval = setInterval(function() {
+                var minutes = Math.floor(seconds / 60);
+                var remainingSeconds = seconds % 60;
+
+                // Fügen Sie führende Nullen hinzu, wenn nötig
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                remainingSeconds = remainingSeconds < 10 ? "0" + remainingSeconds : remainingSeconds;
+
+                // Aktualisieren Sie den Timer-Text
+                timer.innerHTML = "Daten verfügbar in: " + minutes + ":" + remainingSeconds;
+
+                // Reduzieren Sie die verbleibende Zeit um eine Sekunde
+                seconds--;
+
+                // Überprüfen Sie, ob die Zeit abgelaufen ist
+                if (seconds < 0) {
+                    clearInterval(interval); // Stoppen Sie den Timer, wenn die Zeit abgelaufen ist
+                    timer.innerHTML = "Daten werden nun alle 30 Sek Erneuert"  // Ändern Sie den Text, wenn die Zeit abgelaufen ist
+                    callback(); // Aufruf der callback-Funktion, wenn der Timer abgelaufen ist
+                }
+            }, 1000);
+        }
+
+        // Direkt beim Laden der Seite die Webseite anzeigen
+        showWebpage();
+    </script>
+</body>
+</html>
+
+
