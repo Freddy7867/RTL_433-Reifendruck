@@ -36,4 +36,4 @@ Reifendruck.html:
 Diese Seite verfügt über einen Zeitblock, der anzeigt, wann die nächste Aktualisierung erfolgt.
 
 # Kopieren 
-Alle Dateien müssen nach der einrichtung in den ordner var/www/html Kopert werden. Dann können diese mit der Ip_Adresse des Pi's aifgerufen werden, zb http://153.167.165:80/Reifendruck.html oder http://153.167.165:80/ReifendruckDSP.html
+Alle Dateien müssen nach der einrichtung in den ordner var/www/html Kopert werden. Dann können diese mit der Ip_Adresse des Pi's aifgerufen werden, zb http://HIER-IP-ADDRESSE:80/Reifendruck.html oder http://HIER-IP-ADDRESSE/ReifendruckDSP.html
